@@ -5,7 +5,7 @@
 #
 #
 #Finds the user's name
-echo "Before continuing, please make a file on the tesktop called readmeusers.txt and copy all users listed in the readme to it."
+echo "Before continuing, please make a file on the Desktop called readmeusers.txt and copy all users listed in the readme to it."
 echo "Please Enter the Current User's Name"
 read varname
 #
