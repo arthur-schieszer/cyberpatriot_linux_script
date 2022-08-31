@@ -101,4 +101,5 @@ done
 #
 #
 echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too."
+echo "alias nano=micro" >> /home/$varname/.bashrc
 neofetch
