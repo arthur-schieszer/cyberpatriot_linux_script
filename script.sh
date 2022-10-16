@@ -12,7 +12,7 @@ read varname
 #
 #
 #Installs necesecary programs and updates the system
-apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd ranger micro tldr nala
+apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd ranger micro tldr
 apt -qq --yes update
 apt -qq --yes upgrade
 apt -qq --yes dist-upgrade
