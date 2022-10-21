@@ -53,6 +53,7 @@ done
 #
 #
 #Deletes unwanted users
+########################################################################Should Consider locking accounts with the shadow file instead of deleting them.
 sort /home/$varname/Desktop/readmeusers.txt
 touch /home/$varname/Desktop/usersdel.txt
 touch /home/$varname/Desktop/usersdiff.txt
