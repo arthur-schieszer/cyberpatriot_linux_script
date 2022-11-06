@@ -8,6 +8,7 @@
 echo "Before continuing, please make a file on the Desktop called readmeusers.txt and copy all users listed in the readme to it."
 echo "Please Enter the Current User's Name"
 read varname
+#Could be replaced with $USER, but left this way to prevent people accidentally running as the wrong person
 #
 #
 #
