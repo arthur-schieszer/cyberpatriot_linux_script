@@ -74,6 +74,7 @@ done
 for i in `less /home/$varname/Desktop/usersdel.txt`
 do
   sed -i "s/$i/#$i/" /etc/passwd
+  passwd -l $i
 done
 #
 #
