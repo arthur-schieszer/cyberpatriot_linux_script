@@ -5,17 +5,23 @@
 #
 #
 #Finds the user's name
-echo "Before continuing, please make a file on the tesktop called readmeusers.txt and copy all users listed in the readme to it."
+echo "Before continuing, please make a file on the Desktop called readmeusers.txt and copy all users listed in the readme to it."
 echo "Please Enter the Current User's Name"
 read varname
+#Could be replaced with $USER, but left this way to prevent people accidentally running as the wrong person
 #
 #
 #
 #Installs necesecary programs and updates the system
-apt -qq --yes install ufw net-tools gufw clamav neofetch htop auditd
+apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd ranger micro tldr
 apt -qq --yes update
 apt -qq --yes upgrade
 apt -qq --yes dist-upgrade
+#
+#
+#
+#Enables auditing
+auditctl -e 1
 #
 #
 #
@@ -48,6 +54,7 @@ done
 #
 #
 #Deletes unwanted users
+########################################################################Should Consider locking accounts with the shadow file instead of deleting them.
 sort /home/$varname/Desktop/readmeusers.txt
 touch /home/$varname/Desktop/usersdel.txt
 touch /home/$varname/Desktop/usersdiff.txt
@@ -67,6 +74,7 @@ done
 for i in `less /home/$varname/Desktop/usersdel.txt`
 do
   sed -i "s/$i/#$i/" /etc/passwd
+  passwd -l $i
 done
 #
 #
@@ -96,4 +104,8 @@ done
 #
 #
 echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too."
+echo "alias nano=micro" >> /home/$varname/.bashrc
+echo "alias ls='ls -lah'" >> /home/$varnam/.bashrc
+alias ls='ls -lah'
+alias nano=micro
 neofetch
