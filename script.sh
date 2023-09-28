@@ -9,6 +9,9 @@ echo "Before continuing, please make a file on the Desktop called readmeusers.tx
 echo "Please Enter the Current User's Name"
 read varname
 #Could be replaced with $USER, but left this way to prevent people accidentally running as the wrong person
+echo "type your readmeusers in this file, then press enter"
+gedit /home/$varname/Desktop/readmeusers.txt
+read bsvariable
 #
 #
 #
