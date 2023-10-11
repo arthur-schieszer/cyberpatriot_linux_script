@@ -107,10 +107,11 @@ done
 #
 #
 #
-echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
-echo "REMEMBER TO USERDEL -R TO FULLY REMOVE USERS ONCE IT IS CONFIRMED"
 echo "alias nano=micro" >> /home/$varname/.bashrc
 echo "alias ls='ls -lah'" >> /home/$varnam/.bashrc
 alias ls='ls -lah'
 alias nano=micro
 neofetch
+echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
+echo "REMEMBER TO USERDEL -R TO FULLY REMOVE USERS ONCE IT IS CONFIRMED FOR THE FOLLOWING USERS:"
+cat usersdel.txt
