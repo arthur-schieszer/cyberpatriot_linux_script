@@ -53,6 +53,8 @@ do
   chage -m 3 -M 90 -I 30 -W 7 -d 0 "$i"
   echo "$i's password and password age settings have been changed"
 done
+##############################################################Edit login.defs
+#sed -i "s//" /etc/login.defs
 #
 #
 #
@@ -114,4 +116,4 @@ alias nano=micro
 neofetch
 echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
 echo "REMEMBER TO USERDEL -R TO FULLY REMOVE USERS ONCE IT IS CONFIRMED FOR THE FOLLOWING USERS:"
-cat usersdel.txt
+cat /home/$varname/Desktop/usersdel.txt
