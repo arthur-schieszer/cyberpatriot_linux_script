@@ -84,6 +84,7 @@ done
 #
 #Disables login as root
 sed -i 's|root:x:0:0:root:/root:/bin/bash|root:x:0:0:root:/root:/sbin/nologin|' /etc/passwd
+passwd -l root
 #
 #
 #
@@ -106,7 +107,7 @@ done
 #
 #
 #
-echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too."
+echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
 echo "alias nano=micro" >> /home/$varname/.bashrc
 echo "alias ls='ls -lah'" >> /home/$varnam/.bashrc
 alias ls='ls -lah'
