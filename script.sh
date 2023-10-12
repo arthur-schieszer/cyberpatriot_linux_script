@@ -3,6 +3,15 @@
 #
 #Made By Arthur Schieszer For Cyberpatriot Team Neofetch
 #
+#Installs necesecary programs and updates the system
+apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd fail2ban ranger micro tldr notepadqq
+apt -qq --yes update
+apt -qq --yes upgrade
+apt -qq --yes dist-upgrade
+apt -qq --yes purge ophcrack nginx wireshark npcap nc ettercap ettercap-graphical
+#
+clear
+#
 #
 #Finds the user's name
 echo "Before continuing, please make a file on the Desktop called readmeusers.txt and copy all users listed in the readme to it."
@@ -10,16 +19,11 @@ echo "Please Enter the Current User's Name"
 read varname
 #Could be replaced with $USER, but left this way to prevent people accidentally running as the wrong person
 echo "type your readmeusers in this file, then press enter"
-gedit /home/$varname/Desktop/readmeusers.txt
+notepadqq /home/$varname/Desktop/readmeusers.txt
 read bsvariable
 #
 #
 #
-#Installs necesecary programs and updates the system
-apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd fail2ban ranger micro tldr
-apt -qq --yes update
-apt -qq --yes upgrade
-apt -qq --yes dist-upgrade
 #
 #
 #
