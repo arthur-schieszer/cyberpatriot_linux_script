@@ -33,6 +33,8 @@ systemctl enable fail2ban
 ufw enable
 ufw default allow outgoing
 ufw default deny incoming
+#ufw allow 22
+#for ssh^
 #
 #
 #
