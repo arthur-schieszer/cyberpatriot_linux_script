@@ -120,3 +120,10 @@ neofetch
 echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
 echo "REMEMBER TO USERDEL -R TO FULLY REMOVE USERS ONCE IT IS CONFIRMED FOR THE FOLLOWING USERS:"
 cat /home/$varname/Desktop/usersdel.txt
+#Other Notes:
+#login.defs
+#pam.d/common-password
+#find a command to open the editor variable?
+#apt-mark showmanual
+#/etc/apt/sources.list
+#check admin group,remove mail server
