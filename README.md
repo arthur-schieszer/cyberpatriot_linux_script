@@ -1,4 +1,4 @@
-# debian_script
+# linux_script
 
 -----
 
