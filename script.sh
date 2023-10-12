@@ -24,6 +24,9 @@ read bsvariable
 #
 #
 #
+echo "type your readmeadmins in this file, then press enter"
+notepadqq /home/$varname/Desktop/readmeadmins.txt
+read bsvariable
 #
 #
 #
@@ -98,21 +101,28 @@ passwd -l root
 #
 #
 #Disable unwanted admins
-<<'###BLOCK-COMMENT'
-touch /home/$varname/Desktop/readmeadmin.txt
-sort /home/$varname/Desktop/readmeadmin.txt
-awk '/sudo/ {print $0}' /etc/group > /home/$varname/Desktop/admins.txt
-awk -F: '/sudo/ {print $4}' /etc/group > /home/$varname/Desktop/admins2.txt
+###### Currently only uses the sudo group, find a way to incorperate adm and wheel groups
+###### revise the top line??? sed -i "s/root:x:0:/root:x:0:/" /etc/group
+sort /home/$varname/Desktop/readmeadmins.txt
+awk -F: '/sudo/ {print $4}' /etc/group > /home/$varname/Desktop/admins.txt
+##awk -F: '/adm/ {print $4}' /etc/group > /home/$varname/Desktop/admins2.txt
+sort /home/$varname/Desktop/admins.txt
+##sort /home/$varname/Desktop/admins2.txt
 
-
-diff /home/$varname/Desktop/admins2.txt /home/$varname/Desktop/readmeadmin.txt > /home/$varname/Desktop/adminsdiff.txt
+diff /home/$varname/Desktop/admins.txt /home/$varname/Desktop/readmeadmins.txt > /home/$varname/Desktop/adminsdiff.txt
 awk '/^\</ {print $2}' /home/$varname/Desktop/adminsdiff.txt > /home/$varname/Desktop/adminsdel.txt
 awk '/^\>/ {print $2}' /home/$varname/Desktop/adminsdiff.txt > /home/$varname/Desktop/antiadmindiff.txt
 for i in `less /home/$varname/Desktop/antiadmindiff.txt`
 do
   sed -i "/$i/d" /home/$varname/Desktop/adminsdel.txt
 done
-###BLOCK-COMMENT
+
+for i in 'less /home/$varname/Desktop/adminsdel.txt'
+do
+  gpasswd -d $i sudo
+  gpasswd -d $i adm
+  gpasswd -d $i wheel
+done
 #
 #
 #
@@ -124,6 +134,8 @@ neofetch
 echo "Check the sudoers file using visudo, check the wheel, admin, and sudo groups too. Also check your services."
 echo "REMEMBER TO USERDEL -R TO FULLY REMOVE USERS ONCE IT IS CONFIRMED FOR THE FOLLOWING USERS:"
 cat /home/$varname/Desktop/usersdel.txt
+echo "\nThe following users were removed from an admin account"
+cat /home/$varname/Desktop/adminsdel.txt
 #Other Notes:
 #login.defs
 #pam.d/common-password
