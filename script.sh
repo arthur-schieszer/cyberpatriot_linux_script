@@ -16,7 +16,7 @@ read bsvariable
 #
 #
 #Installs necesecary programs and updates the system
-apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd ranger micro tldr
+apt -qq --yes install ufw net-tools gufw clamav neofetch htop libpam-cracklib auditd fail2ban ranger micro tldr
 apt -qq --yes update
 apt -qq --yes upgrade
 apt -qq --yes dist-upgrade
@@ -26,7 +26,8 @@ apt -qq --yes dist-upgrade
 #Enables auditing
 auditctl -e 1
 #
-#
+#Enable fail2ban
+systemctl enable fail2ban
 #
 #Enables and configures the firewall
 ufw enable
