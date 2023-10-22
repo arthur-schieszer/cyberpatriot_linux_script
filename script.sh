@@ -59,7 +59,7 @@ for i in `less /home/$varname/Desktop/userlist.txt`
 do
   echo $i
   passwd -e "$i"
-  echo -e "CyberpatriotS@14\nCyberpatriotS@14" | passwd "$i"
+  echo -e "CyberpatriotS@16\nCyberpatriotS@16" | passwd "$i"
   chage -m 3 -M 90 -I 30 -W 7 -d 0 "$i"
   echo "$i's password and password age settings have been changed"
 done
@@ -70,6 +70,7 @@ done
 #
 #Deletes unwanted users
 ########################################################################Should Consider locking accounts with the shadow file instead of deleting them.
+
 sort /home/$varname/Desktop/readmeusers.txt
 touch /home/$varname/Desktop/usersdel.txt
 touch /home/$varname/Desktop/usersdiff.txt
@@ -91,6 +92,7 @@ do
   sed -i "s/$i/#$i/" /etc/passwd
   passwd -l $i
 done
+<<Block
 #
 #
 #
@@ -123,6 +125,7 @@ do
   gpasswd -d $i adm
   gpasswd -d $i wheel
 done
+Block
 #
 #
 #
