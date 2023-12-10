@@ -4,7 +4,7 @@
 #Made By Arthur Schieszer For Cyberpatriot Team Neofetch
 #
 #Installs necesecary programs and updates the system
-apt -qq --yes install ufw net-tools gufw clamav neofetch htop auditd fail2ban ranger micro tldr notepadqq
+apt -qq --yes install ufw net-tools gufw clamav neofetch htop auditd fail2ban ranger micro tldr
 apt -qq --yes update
 apt -qq --yes upgrade
 apt -qq --yes dist-upgrade
@@ -19,13 +19,13 @@ echo "Please Enter the Current User's Name"
 read varname
 #Could be replaced with $USER, but left this way to prevent people accidentally running as the wrong person
 echo "type your readmeusers in this file, then press enter"
-notepadqq /home/$varname/Desktop/readmeusers.txt
+nano /home/$varname/Desktop/readmeusers.txt
 read bsvariable
 #
 #
 #
 echo "type your readmeadmins in this file, then press enter"
-notepadqq /home/$varname/Desktop/readmeadmins.txt
+nano /home/$varname/Desktop/readmeadmins.txt
 read bsvariable
 #
 #
