@@ -6,9 +6,14 @@
 #Installs necesecary programs and updates the system
 apt -qq --yes install ufw net-tools gufw clamav neofetch htop auditd fail2ban ranger micro tldr
 apt -qq --yes update
-apt -qq --yes upgrade
-apt -qq --yes dist-upgrade
 apt -qq --yes purge ophcrack nginx wireshark npcap nc ettercap ettercap-graphical
+echo "Would you like to install system updates now? [y/N]"
+read update
+if [ update == "y" ];
+then
+  apt -qq --yes upgrade
+  apt -qq --yes dist-upgrade
+fi
 #
 clear
 #
